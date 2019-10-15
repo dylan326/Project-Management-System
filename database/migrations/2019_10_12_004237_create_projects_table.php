@@ -17,8 +17,8 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description')->nullable();
-            $table->integer('company_id')->unsigned()->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->biginteger('company_id')->unsigned()->nullable();
+            $table->biginteger('user_id')->unsigned();
             $table->integer('days')->unsigned()->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');

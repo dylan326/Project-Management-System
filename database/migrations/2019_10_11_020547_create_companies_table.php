@@ -17,10 +17,14 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->longText('description')->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->biginteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
+
+        
     }
     
     /**
