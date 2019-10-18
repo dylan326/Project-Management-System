@@ -14,5 +14,17 @@ class Project extends Model
         'days'
     ];
 
+    public function user(){
+        return $this->belongsToMany('App\User');
+    }
+
+    public function company(){
+        return $this->belongsTo('App\Company');
+    }
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
+    }
+    
     
 }
