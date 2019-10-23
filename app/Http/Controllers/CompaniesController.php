@@ -37,7 +37,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -46,9 +46,12 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Company $company)
     {
-        //
+        //$company = Company::where('id', $company->id)->first();
+        $company = Company::find($company->id);
+
+        return view('companies.show', ['company'=>$company]);
     }
 
     /**
