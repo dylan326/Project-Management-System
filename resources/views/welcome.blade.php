@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Dylan Oct 7th
+                    Laravel Dylan Oct 24th
                 </div>
 
                 <div class="links">
