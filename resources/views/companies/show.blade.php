@@ -27,30 +27,40 @@
           <div class="sidebar-module sidebar-module-inset">
           <h4>Actions</h4>
             <ol class="list-unstyled">
-            <li><a href="#">Edit</a></li>
-            <li><a href="#">Delete</a></li>
-            <li><a href="#">Add New User</a></li>
+            <li><a href="/companies">Back to Companies</a></li>
+            <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
+           
+            <li>
+
+                  
+            <a   
+            href="#"
+                onclick="
+                var result = confirm('Are you sure you wish to delete this Company?');
+                    if( result ){
+                            event.preventDefault();
+                            document.getElementById('delete-form').submit();
+                    }
+                        "
+                        >
+                Delete
+            </a>
+
+            <form id="delete-form" action="{{ route('companies.destroy',[$company->id]) }}" 
+              method="POST" style="display: none;">
+                      <input type="hidden" name="_method" value="delete">
+                      {{ csrf_field() }}
+            </form>
+
+
+
+
+            </li>
+            <!--<li><a href="#">Add New User</a></li>-->
             
             </ol>
           </div>
-          <!--<div class="sidebar-module">
-            <h4>Members</h4>
-            <ol class="list-unstyled">
-           
-              <li><a href="#">January</a></li>
-              <li><a href="#">February 2014</a></li>
-              <li><a href="#">January 2014</a></li>
-              <li><a href="#">December 2013</a></li>
-              <li><a href="#">November 2013</a></li>
-              <li><a href="#">October 2013</a></li>
-              <li><a href="#">September 2013</a></li>
-              <li><a href="#">August 2013</a></li>
-              <li><a href="#">July 2013</a></li>
-              <li><a href="#">June 2013</a></li>
-              <li><a href="#">May 2013</a></li>
-              <li><a href="#">April 2013</a></li>
-            </ol>
-          </div>-->
+         
           
         </div>
 
