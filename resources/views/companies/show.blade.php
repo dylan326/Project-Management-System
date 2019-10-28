@@ -29,6 +29,8 @@
             <ol class="list-unstyled">
             <li><a href="/companies">Back to Companies</a></li>
             <li><a href="/companies/{{ $company->id }}/edit">Edit</a></li>
+            <li><a href="/projects/create">Add Project</a></li>
+            <li><a href="/companies/create">Add New Company</a></li>
            
             <li>
 

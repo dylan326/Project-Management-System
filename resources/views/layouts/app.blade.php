@@ -75,7 +75,7 @@
         <main class="py-4">
         <div class="container">
 
-        @include('partials.error')
+        @include('partials.errors')
         @include('partials.success')
 
          <div class="row">
