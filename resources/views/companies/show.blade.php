@@ -23,6 +23,7 @@
       </div>
 </div>
 
+
       <div class="col-sm-3 col-md-3 col-lg-3 col-sm-3 pull-right">
           <div class="sidebar-module sidebar-module-inset">
           <h4>Actions</h4>

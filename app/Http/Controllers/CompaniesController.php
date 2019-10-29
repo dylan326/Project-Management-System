@@ -15,9 +15,14 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $companies = Company::all();
+        if(Auth::check())
+        {
+        $companies = Company::where('user_id', Auth::user()->id)->get();
 
         return view('companies.index', ['companies' => $companies]);
+
+        }
+        return view('auth.login');
     }
 
     /**
@@ -40,6 +45,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
+        //
         if(Auth::check()){
             $company = Company::create([
                 'name' => $request->input('name'),
@@ -51,9 +57,8 @@ class CompaniesController extends Controller
                 ->with('success' , 'Company created successfully');
             }
         }
-
-        return back()->withInput()->withErrors('errors', 'Error creating new company');
-  
+        
+            return back()->withInput()->with('errors', 'Error creating new company');
     }
 
     /**
