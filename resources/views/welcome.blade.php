@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel Dylan Oct 24th
+                    Pmanager
                 </div>
 
                 <div class="links">
