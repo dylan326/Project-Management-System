@@ -60,8 +60,18 @@
                                           name="company_id"
                                           value="{{ $company_id }}"
                                            />
-                     
-      
+                     @if($companies != null)
+                                           <div class="form-group">
+                                           <label for="company-content">Select company</label>
+                                           <select name="company_id" class="form-control">
+                                           @foreach($companies as $company)
+                                           <option value="{{$company_id}}">{{ $company->name }}</option>
+                                           @endforeach
+                                           </select>
+                                
+                            </div>
+                            @endif
+
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary"
                                        value="Submit"/>
