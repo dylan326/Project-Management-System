@@ -14,6 +14,9 @@
       <!-- Example row of columns -->
       <div class="row" style="background-color: white; margin: 10px;">
 
+      
+      @include('partials.comments')
+
  
 <div class="row container-fluid">
       <form method="post" action="{{ route('comments.store') }}" style="width: 80%; border-radius: 5px;">
@@ -61,7 +64,7 @@
         </div>
         @endforeach --}}
         
-        @include('partials.comments')
+        
       </div>
 </div>
  

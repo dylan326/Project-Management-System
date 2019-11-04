@@ -18,6 +18,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+   
+<script src="https://use.fontawesome.com/f7f8a64fba.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -50,18 +54,41 @@
                             @endif
                         @else
                         <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('companies.index') }}">My Companies</a>
+                                    <a class="nav-link" href="{{ route('companies.index') }}"><i class="fa fa-building"></i>  My Companies</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
+                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>  Projects</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tasks.index') }}">Tasks</a>
+                                    <a class="nav-link" href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i>  Tasks</a>
                                 </li>
+                        @if(Auth::user()->role_id == 2)
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <i class="fa fa-user"></i>  Admin <span class="caret"></span>
+                                </a>
+                            <ul class="dropdown-menu" rold="menu">
+                            <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Projects</a>
+                                </li>  
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Users</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Tasks</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Companies</a>
+                                </li>
+
+                            </ul>
+                            </li>
+
+                            @endif
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-user"></i>  {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
