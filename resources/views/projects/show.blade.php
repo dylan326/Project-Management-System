@@ -115,23 +115,25 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
             <form id="add-user" action="{{ route('projects.adduser') }}" 
               method="POST">
-              <input type="hidden" name="project_id" value="{{ $project->id }}">
+              {{ csrf_field() }}
+              <input type="hidden" id="project_id" name="project_id" value="{{ $project->id }}">
     <div class="input-group">
-      <input type="text" class="form-control" name="email" placeholder="Email">
+      <input type="text" class="form-control" id="email" name="email" placeholder="Email">
       <span class="input-group-btn">
         <button class="btn btn-default" type="submit">Add</button>
       </span>
     </div><!-- /input-group -->
-    {{ csrf_field() }}
+   
     </form>
   </div><!-- /.col-lg-6 -->
 </div>
 <br><hr>
 <h4>Team Members</h4>
 <ol class="list-unstyled">
-<li><a href="#">Dylan Oldham</a></li>
-<li><a href="#">Jenny Powell</a></li>
-<li><a href="#">Midori Yoshihara</a></li>
+@foreach($project->users as $user)
+<li><a href="#">{{ $user->email }}</a></li>
+@endforeach
+
             
       </ol>
 

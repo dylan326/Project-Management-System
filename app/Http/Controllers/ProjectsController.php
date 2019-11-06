@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Company;
 use App\User;
+use App\ProjectUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,23 +28,60 @@ class ProjectsController extends Controller
         return view('auth.login');
     }
 
+    public function admin_index()
+    {
+        if(Auth::user()->role_id == 2)
+        {
+            $projects = Project::all();
+
+            return view('projects.index', ['projects' => $projects]);
+
+        }
+
+    }
+
     public function adduser(Request $request) {
 
         //add user to projects
         //take a project and add user to it. 
 
-        $project = Project::find($request->input('project_id'));
+     
+         $project = Project::find($request->input('project_id'));
+        
+         if(Auth::user()->id == $project->user_id){
+         $user = User::where('email', $request->input('email'))->first(); //single record
 
-        $user = User::where('email', $request->input('email'))->get();
-
-        if(Auth::user()->id == $project->user_id)
-        {
-            if($user && $project)
-            {
-                $project->users()->attach($user->id);
-    
+         if(!$user)
+         {
+            return redirect()->route('projects.show', ['project'=> $project->id])
+            ->with('errors' ,  'Error adding user to project, this user does not exist');
+         }
+         //check if user is already added to the project
+         $projectUser = ProjectUser::where('user_id',$user->id)
+                                    ->where('project_id',$project->id)
+                                    ->first();
+                                
+                                    
+            if($projectUser){
+                //if user already exists, exit 
+        
+                //return response()->json(['success' ,  $request->input('email').' is already a member of this project']); 
+                return redirect()->route('projects.show', ['project' =>$project->id])
+                ->with('success',  $request->input('email').' is already a member to this project');
+               
             }
-        }
+            if($user && $project){
+                $project->users()->attach($user->id); 
+                     //return response()->json(['success' ,  $request->input('email').' was added to the project successfully']); 
+                     return redirect()->route('projects.show', ['project' =>$project->id])
+                ->with('success',  $request->input('email').' has been added to this project');
+                        
+                    }
+          
+                    
+         }
+         return redirect()->route('projects.show', ['project'=> $project->id])
+         ->with('errors' ,  'Error adding user to, you do not have permission to add users to this company');
     
         
     }
