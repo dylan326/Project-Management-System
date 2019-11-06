@@ -72,13 +72,16 @@
                                     <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Projects</a>
                                 </li>  
                                  <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Users</a>
+                                    <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-user"></i>All Users</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Tasks</a>
+                                    <a class="nav-link" href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i>All Tasks</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('projects.index') }}"><i class="fa fa-briefcase"></i>All Companies</a>
+                                    <a class="nav-link" href="{{ route('companies.index') }}"><i class="fa fa-building"></i>All Companies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('roles.index') }}"><i class="fa fa-message"></i>All Roles</a>
                                 </li>
 
                             </ul>

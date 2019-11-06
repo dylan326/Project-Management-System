@@ -54,6 +54,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Task');
     }
 
+    //manay to many, make plural and blongsToMany
     public function projects()
     {
         return $this->belongsToMany('App\Project');

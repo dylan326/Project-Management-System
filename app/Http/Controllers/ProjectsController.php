@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use App\Company;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,6 +25,27 @@ class ProjectsController extends Controller
 
         }
         return view('auth.login');
+    }
+
+    public function adduser(Request $request) {
+
+        //add user to projects
+        //take a project and add user to it. 
+
+        $project = Project::find($request->input('project_id'));
+
+        $user = User::where('email', $request->input('email'))->get();
+
+        if(Auth::user()->id == $project->user_id)
+        {
+            if($user && $project)
+            {
+                $project->users()->attach($user->id);
+    
+            }
+        }
+    
+        
     }
 
     /**
@@ -143,4 +165,6 @@ class ProjectsController extends Controller
          }
          return back()->withInput()->with('error' , 'project could not be deleted');
     }
+
+   
 }
