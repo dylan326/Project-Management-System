@@ -28,7 +28,7 @@ class ProjectsController extends Controller
         return view('auth.login');
     }
 
-    public function admin_index()
+    public function adminindex()
     {
         if(Auth::user()->role_id == 2)
         {
@@ -37,8 +37,10 @@ class ProjectsController extends Controller
             return view('projects.index', ['projects' => $projects]);
 
         }
-
+        return view('auth.login');
     }
+
+    
 
     public function adduser(Request $request) {
 

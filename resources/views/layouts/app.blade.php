@@ -69,7 +69,7 @@
                                 </a>
                             <ul class="dropdown-menu" rold="menu">
                             <li class="nav-item">
-                                    <a class="nav-link" href="projects/admin_index"><i class="fa fa-briefcase"></i>All Projects</a>
+                                    <a class="nav-link" href="{{ route('projects.adminindex') }}"><i class="fa fa-briefcase"></i>All Projects</a>
                                 </li>  
                                  <li class="nav-item">
                                     <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-user"></i>All Users</a>
@@ -78,7 +78,7 @@
                                     <a class="nav-link" href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i>All Tasks</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('companies.index') }}"><i class="fa fa-building"></i>All Companies</a>
+                                    <a class="nav-link" href="{{ route('companies.adminindex') }}"><i class="fa fa-building"></i>All Companies</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('roles.index') }}"><i class="fa fa-message"></i>All Roles</a>

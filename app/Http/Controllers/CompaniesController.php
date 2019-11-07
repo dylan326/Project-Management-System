@@ -37,6 +37,21 @@ class CompaniesController extends Controller
         
     }
 
+    public function adminindex()
+    {
+        if(Auth::user()->role_id == 2)
+        {
+            $companies = Company::all();
+
+            return view('companies.index', ['companies' => $companies]);
+
+           
+        }
+        return view('auth.login');
+        
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

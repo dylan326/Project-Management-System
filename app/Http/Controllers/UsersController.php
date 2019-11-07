@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -14,7 +15,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->role_id == 2)
+        {
+            $users = User::all();
+
+            return view('users.index', ['users' => $users]);
+        }
+        return view('auth.login');
     }
 
     /**
@@ -44,9 +51,14 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        
+    
+        $user = User::find($user->id);
+        $comments = $user->comments;
+
+        return view('users.show', ['user'=>$user, 'comments'=> $comments ]);
     }
 
     /**
