@@ -6,8 +6,10 @@
 <div class="col-md-9 col-lg-9 col-sm-9 pull-left">
       <!-- Jumbotron -->
       <div class="well well-lg">
-        <h1>{{ $user->name }}</h1>
-        <p class="lead">{{ $user->email }}</p>
+        <h1>{{ $user->username }}</h1>
+        <p class="lead">Email: {{ $user->email }}</p>
+        <p class="lead">Role: {{ $user->name }}</p>
+        
         
         <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>-->
       </div>

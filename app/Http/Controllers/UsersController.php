@@ -55,10 +55,15 @@ class UsersController extends Controller
     {
         
     
-        $user = User::find($user->id);
+        //$user_id = User::find($user->id);
+
+        $user = User::join('roles', 'roles.id', '=', 'users.role_id')->select('users.name as username', 'users.email', 'roles.name')->where('users.id', '=', $user->id)->first();
+
         $comments = $user->comments;
 
-        return view('users.show', ['user'=>$user, 'comments'=> $comments ]);
+       return view('users.show', ['user'=>$user, 'comments'=> $comments ]);
+
+       //return view('users.show', ['user'=>$user]);
     }
 
     /**
