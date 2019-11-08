@@ -35,16 +35,7 @@
                                           class="form-control autosize-target text-left">
                                           </textarea>
                             </div>
-                            <div class="form-group">
-                                <label for="comment-content">Proof of work done (Url/Photos)</label>
-                                <textarea placeholder="Enter url or screenshots" 
-                                          style="resize: vertical" 
-                                          id="comment-content"
-                                          name="url"
-                                          rows="2" spellcheck="false"
-                                          class="form-control autosize-target text-left">
-                                          </textarea>
-                            </div>
+                          
                             <input type="hidden" name="commentable_type" value="App\Project">
                             <input type="hidden" name="commentable_id" value="{{ $project->id }}">
  

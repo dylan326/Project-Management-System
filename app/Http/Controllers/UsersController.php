@@ -57,7 +57,7 @@ class UsersController extends Controller
     
         //$user_id = User::find($user->id);
 
-        $user = User::join('roles', 'roles.id', '=', 'users.role_id')->select('users.name as username', 'users.email', 'roles.name')->where('users.id', '=', $user->id)->first();
+        $user = User::join('roles', 'roles.id', '=', 'users.role_id')->select('users.id', 'users.name as username', 'users.email', 'roles.name')->where('users.id', '=', $user->id)->first();
 
         $comments = $user->comments;
 

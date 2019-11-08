@@ -40,7 +40,6 @@ class CommentsController extends Controller
         if(Auth::check()){
             $comment = Comment::create([
                 'body' => $request->input('body'),
-                'url' => $request->input('url'),
                 'commentable_type' => $request->input('commentable_type'),
                 'commentable_id' => $request->input('commentable_id'),
                 'user_id' => Auth::user()->id
@@ -50,7 +49,7 @@ class CommentsController extends Controller
             }
         }
         
-            return back()->withInput()->with('errors', 'Error creating new company');
+            return back()->withInput()->with('errors', 'Error submitting your comment');
     }
 
     /**

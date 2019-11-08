@@ -30,10 +30,7 @@
                                 <p>
                                 {{ $comment->body }}
                                 </p>
-                               <b> Proof: </b>
-                                <p>
-                                {{ $comment->url }}
-                                </p>
+                            
                             </div>
                         </li>
 
