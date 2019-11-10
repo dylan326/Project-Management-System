@@ -8,7 +8,8 @@
       <div class="well well-lg">
         <h1>{{ $user->username }}</h1>
         <p class="lead">Email: {{ $user->email }}</p>
-        <p class="lead">Role: {{ $user->name }}</p>
+        <p class="lead">Role ID: {{ $user->role_id }} {{ $user->name }}</p>
+        
         
         
         <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>-->
@@ -63,11 +64,11 @@
             <ol class="list-unstyled">
             
             <li><a href="/users/{{ $user->id }}/edit">Edit</a></li>
-            <li><a href="/users/create">Add User</a></li>
+           
             
            
  
-         @if(Auth::user()->id == 2)  
+            
             <li>
  
                   
@@ -91,7 +92,7 @@
             </form>
         
             </li>
-    @endif
+   
             <!--<li><a href="#">Add New User</a></li>-->
             
   
