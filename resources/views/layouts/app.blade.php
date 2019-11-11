@@ -80,9 +80,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('companies.adminindex') }}"><i class="fa fa-building"></i>All Companies</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('roles.index') }}"><i class="fa fa-message"></i>All Roles</a>
-                                </li>
+                               
 
                             </ul>
                             </li>
