@@ -75,7 +75,7 @@
                                     <a class="nav-link" href="{{ route('users.index') }}"><i class="fa fa-user"></i>All Users</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i>All Tasks</a>
+                                    <a class="nav-link" href="{{ route('tasks.adminindex') }}"><i class="fa fa-tasks"></i>All Tasks</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('companies.adminindex') }}"><i class="fa fa-building"></i>All Companies</a>
