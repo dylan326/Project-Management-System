@@ -26,6 +26,9 @@ Route::middleware(['auth'])->group(function()
     Route::post('projects/adduser', 'ProjectsController@adduser')->name('projects.adduser');
    Route::get('projects/allprojects', 'ProjectsController@adminindex')->name('projects.adminindex');
    Route::get('tasks/alltasks', 'TasksController@adminindex')->name('tasks.adminindex');
+
+   Route::get('projects/tasks/{project_id}', 'ProjectsController@tasklist');
+
     Route::get('companies/allcompanies', 'CompaniesController@adminindex')->name('companies.adminindex');
 Route::resource('companies', 'CompaniesController');
 Route::resource('projects', 'ProjectsController');

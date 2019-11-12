@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Company;
 use App\User;
+use App\Task;
 use App\ProjectUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ProjectsController extends Controller
 {
@@ -206,5 +208,20 @@ class ProjectsController extends Controller
          return back()->withInput()->with('error' , 'project could not be deleted');
     }
 
+    public function tasklist($project_id)
+    {
+
+        //$project_id = Input::get('project_id');
+        //$tasks = Task::where('project_id', $project_id)->get();
+        $data['project_id'] = $project_id;
+         
+        $tasks = Task::where('project_id', $data)->get();
+
+        return view('projects.tasklist', ['tasks'=>$tasks]);
+
+
+    }
+
    
 }
+

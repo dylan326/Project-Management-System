@@ -65,9 +65,13 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        //
+         //$project = Project::where('id', $project->id)->first();
+         $task = Task::find($task->id);
+         $comments = $task->comments;
+ 
+         return view('tasks.show', ['task'=>$task, 'comments'=> $comments ]);
     }
 
     /**
