@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class TasksController extends Controller
 {
@@ -43,9 +45,15 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($project_id = NULL)
     {
-        //
+        $projects = null;
+        if(!$project_id)
+        {
+            $projects = Project::where('user_id', Auth::user()->id)->get();
+        }
+ 
+         return view('tasks.create', ['project_id'=>$project_id, 'projects'=>$projects]);
     }
 
     /**
@@ -56,7 +64,28 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //$project_id = $request->input('project_id');
+         //$request->input('project_id');
+         $project_id =  $request['project_id'];
+         //$company_id = Project::select('company_id')->where('id', $project_id)->first();
+         $company = Project::where('id', $project_id)->first();
+         
+         if(Auth::check()){
+            $task = Task::create([
+                'name' => $request->input('name'),
+                'project_id' => $project_id,
+                'company_id' => $company->id,
+                'days' => $request->input('days'),
+                'hours' => $request->input('hours'),
+                'user_id' => Auth::user()->id
+            ]);
+            if($task){
+                return redirect()->route('tasks.index')
+                ->with('success' , 'Task created successfully');
+            }
+        }
+        
+            return back()->withInput()->with('errors', 'Error creating new project');
     }
 
     /**

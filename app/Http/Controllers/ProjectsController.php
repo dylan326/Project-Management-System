@@ -216,8 +216,9 @@ class ProjectsController extends Controller
         $data['project_id'] = $project_id;
          
         $tasks = Task::where('project_id', $data)->get();
+       $project = Project::where('id', $data)->first();
 
-        return view('projects.tasklist', ['tasks'=>$tasks]);
+        return view('projects.tasklist', ['tasks'=>$tasks, 'project'=>$project]);
 
 
     }

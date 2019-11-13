@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function()
 {
 
     Route::get('projects/create/{company_id?}', 'ProjectsController@create');
+    Route::get('tasks/create/{project_id?}', 'TasksController@create');
     Route::post('projects/adduser', 'ProjectsController@adduser')->name('projects.adduser');
    Route::get('projects/allprojects', 'ProjectsController@adminindex')->name('projects.adminindex');
    Route::get('tasks/alltasks', 'TasksController@adminindex')->name('tasks.adminindex');
