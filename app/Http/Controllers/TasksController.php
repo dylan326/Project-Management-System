@@ -66,14 +66,14 @@ class TasksController extends Controller
     {
          //$project_id = $request->input('project_id');
          //$request->input('project_id');
-         $project_id =  $request['project_id'];
+         $project_id =  $request->input('project_id');
          //$company_id = Project::select('company_id')->where('id', $project_id)->first();
          $company = Project::where('id', $project_id)->first();
          
          if(Auth::check()){
             $task = Task::create([
                 'name' => $request->input('name'),
-                'project_id' => $project_id,
+                'project_id' => $request->input('project_id'),
                 'company_id' => $company->id,
                 'days' => $request->input('days'),
                 'hours' => $request->input('hours'),

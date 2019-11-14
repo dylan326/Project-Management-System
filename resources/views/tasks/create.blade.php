@@ -21,6 +21,7 @@
                                           id="project-name"
                                           required
                                           name="name"
+                                          type = "text"
                                           spellcheck="false"
                                           class="form-control"
                                          
@@ -69,7 +70,7 @@
                                            <label for="company-content">Select Project</label>
                                            <select name="project_id" class="form-control">
                                            @foreach($projects as $project)
-                                           <option value="{{$project_id}}">{{ $project->name }}</option>
+                                           <option value="{{$project->id}}">{{ $project->name }}</option>
                                            @endforeach
                                            </select>
                                 
