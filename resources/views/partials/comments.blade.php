@@ -1,12 +1,12 @@
 <div class="row">
-		<div class="col-md-12 col-sm-12  col-xs-12 col-lg-12">
+		<div class="col-md-8 col-sm-8  col-xs-12 col-lg-8">
         
             <!-- Fluid width widget -->        
-    	    <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
+    	    <div  class="panel panel-primary">
+                <div class="panel-heading" >
+                    <h3 class="panel-title" >
                         <span class="glyphicon glyphicon-comment"></span> 
-                        Recent Comments
+                        <u>Recent Comments</u>
                     </h3>
                 </div>
                 <div class="panel-body">
