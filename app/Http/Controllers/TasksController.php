@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use App\Project;
+use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -98,9 +99,12 @@ class TasksController extends Controller
     {
          //$project = Project::where('id', $project->id)->first();
          $task = Task::find($task->id);
+         $nametrail = Task::join('projects', 'projects.id', '=', 'tasks.project_id')->join('companies', 'companies.id','=', 'projects.company_id')->
+                            select('tasks.name as task', 'projects.name as project', 'companies.name as company')->where('tasks.id','=', $task->id)->first();
+                       
          $comments = $task->comments;
  
-         return view('tasks.show', ['task'=>$task, 'comments'=> $comments ]);
+         return view('tasks.show', ['task'=>$task, 'comments'=> $comments, 'nametrail'=>$nametrail]);
     }
 
     /**

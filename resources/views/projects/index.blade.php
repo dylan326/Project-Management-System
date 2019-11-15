@@ -13,7 +13,9 @@
     <i class="fa fa-plus-square" aria-hidden="true"></i>  Create new</a> </div>
     <div class="panel-body">
         
-
+    @if($projects->isEmpty())
+<h6 style="color: green">No projects created yet...</h6>
+@else
     <ul class="list-group">
     @foreach($projects as $project)
         <li class="list-group-item"> 
@@ -21,7 +23,7 @@
     @endforeach
     </ul>
 
-
+@endif
     </div>
     </div>
 </div>

@@ -6,7 +6,7 @@
 <div class="col-md-9 col-lg-9 col-sm-9 pull-left">
       <!-- Jumbotron -->
       <div class="well well-lg">
-        <h1>{{ $project->name }}</h1>
+        <h1>{{ $project->name }} <span style="font-size: 20px; color: green;">(Company: {{ $companyname->companyname }})</span></h1>
         <p class="lead">{{ $project->description }}</p>
         <!--<p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>-->
       </div>

@@ -141,11 +141,18 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
-        //$project = Project::where('id', $project->id)->first();
+        
         $project = Project::find($project->id);
+        $companyname = Company::join('projects', 'projects.company_id', '=', 'companies.id')->select('companies.name as companyname')->where('projects.id','=', $project->id)->first();
+        /*
+ $user = User::join('roles', 'roles.id', '=', 'users.role_id')->select
+ ('users.id', 'users.name as username', 'users.email', 'roles.name', 'roles.id as role_id')->where('users.id', '=', $user->id)->first();
+
+
+        */
         $comments = $project->comments;
 
-        return view('projects.show', ['project'=>$project, 'comments'=> $comments ]);
+        return view('projects.show', ['project'=>$project, 'comments'=> $comments, 'companyname'=>$companyname ]);
     }
 
     /**

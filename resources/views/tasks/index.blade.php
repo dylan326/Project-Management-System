@@ -8,7 +8,9 @@
     <i class="fa fa-plus-square" aria-hidden="true"></i>  Create new</a> </div>
     <div class="panel-body">
         
-
+    @if($tasks->isEmpty())
+<h6 style="color: green">No tasks created yet...</h6>
+@else
     <ul class="list-group">
     @foreach($tasks as $task)
         <li class="list-group-item"> 
@@ -16,7 +18,7 @@
     @endforeach
     </ul>
 
-
+@endif
     </div>
     </div>
 </div>
