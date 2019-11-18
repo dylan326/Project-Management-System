@@ -69,13 +69,13 @@ class TasksController extends Controller
          //$request->input('project_id');
          $project_id =  $request->input('project_id');
          //$company_id = Project::select('company_id')->where('id', $project_id)->first();
-         $company = Project::where('id', $project_id)->first();
+         $project = Project::select('company_id')->where('id', $project_id)->first();
          
          if(Auth::check()){
             $task = Task::create([
                 'name' => $request->input('name'),
                 'project_id' => $request->input('project_id'),
-                'company_id' => $company->id,
+                'company_id' => $project->company_id,
                 'days' => $request->input('days'),
                 'hours' => $request->input('hours'),
                 'user_id' => Auth::user()->id
@@ -127,7 +127,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -136,8 +136,16 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+          //
+          $findtask = Task::find( $task->id);
+          if($findtask->delete()){
+              
+              //redirect
+              return redirect()->route('tasks.index')
+              ->with('success' , 'Task deleted successfully');
+          }
+          return back()->withInput()->with('error' , 'Task could not be deleted');
     }
 }

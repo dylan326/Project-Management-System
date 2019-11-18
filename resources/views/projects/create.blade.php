@@ -65,7 +65,7 @@
                                            <label for="company-content">Select company</label>
                                            <select name="company_id" class="form-control">
                                            @foreach($companies as $company)
-                                           <option value="{{$company_id}}">{{ $company->name }}</option>
+                                           <option value="{{$company->id}}">{{ $company->name }}</option>
                                            @endforeach
                                            </select>
                                 
